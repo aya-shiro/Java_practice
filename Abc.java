@@ -2,11 +2,16 @@ import java.util.Scanner;
 
 public class Abc {
   public static void main(String[] args) {
-    System.out.println("Test!");
+    System.out.println("Practice!");
+    
     int number = 33;
     char n = '1';  //char型はシングルクォーテーションで囲む
     char s = 'あ';
     System.out.println("char型 " + n + " や " + s + " はシングルクォーテーションで囲む");
+    String d = "Java";
+    System.out.printf("char nの値は%c,String dの値は%sで上の文をすっきり書ける%n", n, d);
+    // 出力文の末尾に %n をつけるとprintfでも改行できる
+
     short myShort = 0x1234;    //0b…2進数・0…8進数・0x…16進数
     System.out.println("byte・short・int・longの4つの型はビット符号付き整数を格納できる");
     System.out.println(myShort);
