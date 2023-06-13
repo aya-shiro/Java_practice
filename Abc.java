@@ -1,8 +1,14 @@
 import java.util.Scanner;
 
 public class Abc {
+  // クラスメソッド
+  static double SimpleCalc(double base, double height) {
+    return base * height / 2;
+  } 
+  
   public static void main(String[] args) {
     System.out.println("Practice!");
+    System.out.println(Abc.SimpleCalc(10.0, 30.0));  //クラスメソッドの呼び出し
     
     int number = 33;
     char n = '1';  //char型はシングルクォーテーションで囲む
@@ -67,6 +73,8 @@ public class Abc {
         System.out.println("参照はありません");        
       } else {
         System.out.printf("cards[%d]のIDは%d、名前は%s%n", c, cards[c].id, cards[c].name);
+        StudentCard.count++;  //count++;と省略可(一意に定まるため)
+        System.out.println("カウント：" + StudentCard.count);
       }
     }
   }
@@ -96,6 +104,9 @@ public class Abc {
 
 // インスタンス生成
 class StudentCard {
+  // クラス変数
+  static int count = 0;
+  
   int id;
   String name;
   
@@ -109,6 +120,7 @@ class StudentCard {
     this.id = id;
     this.name = name;
   }
+  
   void printInfo() {
     System.out.printf("IDが%dであるカードの持ち主は%sです%n", this.id, this.name);
   }
