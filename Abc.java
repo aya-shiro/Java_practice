@@ -50,26 +50,18 @@ public class Abc {
     RandomHand();
     RandomHand("グー");
     
-    // クラス名 変数名 ＝ new メソッド名
-    StudentCard a = new StudentCard();
-    a.id = 2;
-    a.name = "John";
-    StudentCard b = new StudentCard();
-    b.id = 3;
-    b.name = "Mall";
-    System.out.printf("IDが%dであるカードの持ち主は%sです%n", a.id, a.name);
+    StudentCard a = new StudentCard(2, "John");
+    // a.id = 2;
+    // a.name = "John";
+    a.printInfo();
     
     // インスタンスの配列
     StudentCard[] cards = new StudentCard[3];
-    cards[0] = new StudentCard();
-    cards[0].id = 10;
-    cards[0].name = "Tenancy";
+    cards[0] = new StudentCard(10, "Tenancy");
     // cards[1] = new StudentCard();
     // cards[1].id = 11;
     // cards[1].name = "Elen";
-    cards[2] = new StudentCard();
-    cards[2].id = 12;
-    cards[2].name = "Twelly";
+    cards[2] = new StudentCard(12, "Twelly");
     for(int c = 0;c < 3; c++) {
       if (cards[c] == null) {
         System.out.println("参照はありません");        
@@ -106,4 +98,18 @@ public class Abc {
 class StudentCard {
   int id;
   String name;
+  
+  // 5行下のコンストラクタのオーバーロード、インスタンス生成時に渡す引数が1つのみでも対応可能に
+  StudentCard(int id) {
+    this.id = id;
+    this.name = "未定";
+  }
+  // コンストラクタ
+  StudentCard(int id, String name) {
+    this.id = id;
+    this.name = name;
+  }
+  void printInfo() {
+    System.out.printf("IDが%dであるカードの持ち主は%sです%n", this.id, this.name);
+  }
 }
