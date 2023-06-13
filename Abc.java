@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Abc {
-  public static void main(String[] args) {
+
     System.out.println("Practice!");
     
     int number = 33;
@@ -44,12 +44,30 @@ public class Abc {
       System.out.println("価格は合計" + totalPrice + "円です");
     }
     
+    double circleArea = GetAreaOfCircle(2);
+    System.out.println("円の面積は" + circleArea + "㎠です");
+    
     RandomHand();
+    RandomHand("グー");
+    
+    // クラス名 変数名 ＝ new メソッド名
+    StudentCard a = new StudentCard();
+    a.id = 2;
+    a.name = "John";
+    StudentCard b = new StudentCard();
+    b.id = 3;
+    b.name = "Mall";
+    System.out.printf("IDが%dであるカードの持ち主は%sです%n", a.id, a.name);
   }
   
   public static double items(double price, int amount){
     double totalPrice = price * amount;
     return totalPrice;
+  }
+  
+  // 戻り値で計算する円の面積
+  public static double GetAreaOfCircle(double radius) {
+    return radius * radius * 3.14;
   }
   
   // ランダム
@@ -59,4 +77,15 @@ public class Abc {
     System.out.println(janken[randomNumber]);
   }
   
+  // オーバーロード
+  public static void RandomHand(String j) {
+    System.out.println(j + "を引数に受け取った！");
+  }
+  
+}
+
+// インスタンス生成
+class StudentCard {
+  int id;
+  String name;
 }
