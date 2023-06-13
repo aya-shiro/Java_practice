@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Abc {
-
+  public static void main(String[] args) {
     System.out.println("Practice!");
     
     int number = 33;
@@ -58,6 +58,25 @@ public class Abc {
     b.id = 3;
     b.name = "Mall";
     System.out.printf("IDが%dであるカードの持ち主は%sです%n", a.id, a.name);
+    
+    // インスタンスの配列
+    StudentCard[] cards = new StudentCard[3];
+    cards[0] = new StudentCard();
+    cards[0].id = 10;
+    cards[0].name = "Tenancy";
+    // cards[1] = new StudentCard();
+    // cards[1].id = 11;
+    // cards[1].name = "Elen";
+    cards[2] = new StudentCard();
+    cards[2].id = 12;
+    cards[2].name = "Twelly";
+    for(int c = 0;c < 3; c++) {
+      if (cards[c] == null) {
+        System.out.println("参照はありません");        
+      } else {
+        System.out.printf("cards[%d]のIDは%d、名前は%s%n", c, cards[c].id, cards[c].name);
+      }
+    }
   }
   
   public static double items(double price, int amount){
@@ -81,7 +100,6 @@ public class Abc {
   public static void RandomHand(String j) {
     System.out.println(j + "を引数に受け取った！");
   }
-  
 }
 
 // インスタンス生成
