@@ -25,8 +25,8 @@ class Status {
   }
   
   void Walk() {
-    this.name = name;
-    this.energy = energy;
+    // this.name = name;
+    // this.energy = energy;
     if (this.energy < 10) {
       System.out.println(this.name + "疲れちゃって、これ以上歩けないよ");
     } else {

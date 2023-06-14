@@ -100,6 +100,8 @@ public class Abc {
   public static void RandomHand(String j) {
     System.out.println(j + "を引数に受け取った！");
   }
+  
+
 }
 
 // インスタンス生成
@@ -123,5 +125,13 @@ class StudentCard {
   
   void printInfo() {
     System.out.printf("IDが%dであるカードの持ち主は%sです%n", this.id, this.name);
+  }
+}
+
+// 継承
+class StudentBook extends StudentCard {
+  public StudentBook() {
+    super.printInfo();
+    System.out.println("生徒手帳を発行します");
   }
 }
