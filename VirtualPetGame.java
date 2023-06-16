@@ -1,19 +1,20 @@
-class Dog {
+class VirtualPetGame {
   public static void main(String[] args) {
     VirtualDog maro = new VirtualDog("マロ", 100, 80);
     VirtualDog horo = new VirtualDog("ホロ", 100, 40);
     
-    maro.Sleep();
+    // maro.Sleep();
+    maro.Walk();
     maro.PrintInfo();
   } 
 }
 
-class Status {
+class VirtualDog {
   String name;
   int maxEnergy;
   int energy;
   
-  Status(String name, int energy, int maxEnergy) {  //コンストラクタ
+  VirtualDog(String name, int energy, int maxEnergy) {  //コンストラクタ
     this.name = name;
     this.energy = energy;
     this.maxEnergy = maxEnergy;
@@ -28,9 +29,9 @@ class Status {
     // this.name = name;
     // this.energy = energy;
     if (this.energy < 10) {
-      System.out.println(this.name + "疲れちゃって、これ以上歩けないよ");
+      System.out.println(this.name + "：疲れちゃって、これ以上歩けないよ");
     } else {
-      System.out.println(this.name + "歩いたよ。体力が10減って最大体力が1増えたよ");
+      System.out.println(this.name + "：歩いたよ。体力が10減って最大体力が1増えたよ");
       this.energy -= 10;
       this.maxEnergy ++;
     }
