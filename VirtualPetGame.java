@@ -17,7 +17,7 @@ abstract class VirtualPet {  //abstractをクラスにつけて抽象化(イン�
   int maxEnergy;
   int energy;
 
-  abstract void move();  
+  abstract void Move();  
   //abstractをメソッドにつけて抽象化(処理記述を不可)にする→サブで必ずmoveメソッドをORする必要がある→サブでのmoveメソッド実装漏れを防ぐ！
 
   VirtualPet(String name, int energy, int maxEnergy) {  //コンストラクタ
@@ -38,13 +38,21 @@ abstract class VirtualPet {  //abstractをクラスにつけて抽象化(イン�
   }
 }
 
-class VirtualDog extends VirtualPet {
+interface CanSwim {  //1.interface宣言
+  void Swimming();
+}
+
+class VirtualDog extends VirtualPet implements CanSwim {  //2.implements宣言
   VirtualDog(String name, int energy, int maxEnergy) {
     super(name, energy, maxEnergy);
   }
   
-  void move() {
-      System.out.println("歩きます"); 
+  public void Swimming() {  //3.宣言通りに実装
+    System.out.println("Swimming");
+  }
+  
+  void Move() {
+    System.out.println("歩きます"); 
   }
   
   void Walk() {
@@ -66,8 +74,8 @@ class VirtualBird extends VirtualPet {
     super(name, energy, maxEnergy);
   }
 
-  void move() {
-      System.out.println("歩きます"); // move() メソッドの具体的な実装
+  void Move() {
+    System.out.println("歩きます"); // move() メソッドの具体的な実装
   }
 
   public void Fly() {
