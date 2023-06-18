@@ -74,7 +74,7 @@ public class Abc {
         StudentCard.count++;  //count++;と省略可(一意に定まるため)
         System.out.println("カウント：" + StudentCard.count);
       }
-    }
+    }De
   }
 
   public static double items(double price, int amount){
