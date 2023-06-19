@@ -36,8 +36,8 @@ class Def {
     // java.lang.Mathクラス
     double dd = Math.abs(-9.4);  //絶対値を返すMath.abs
     System.out.println(dd);
-    double ss = Math.sin(10);
-    System.out.println(ss);
+    System.out.println("sin30°は" + Math.sin(30.0 * Math.PI / 180.0));  //Math.sinの引数の値はラジアン単位、30*π/1
+    // System.out.println(Math.sin(Math.PI / 6));  //この求め方もOK、π/6
     double qq = Math.sqrt(25);
     System.out.println(qq);
     
