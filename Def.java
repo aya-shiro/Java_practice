@@ -19,10 +19,18 @@ class Def {
     
     // java.lang.Stringクラス
     String message = "Hello, Java!";
-    System.out.println(message.length());
+    System.out.println(message.length());  
     System.out.println(message.indexOf("o"));
     System.out.println(message.contains("hello"));
     System.out.println(message.contains("Hello"));
+    System.out.println(message.replace("Hello", "Good morning"));
+    System.out.println(message.replace("Hi", "Good morning"));
+    
+    String date = "2023/06/19";
+    String[] items = date.split("/");
+    for (int i = 0; i < items.length; i++) {
+      System.out.println(items[i]);
+    }
   }
 
   
