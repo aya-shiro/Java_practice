@@ -5,19 +5,25 @@
 // }
 
 import java.util.*;
-import java.util.Random;
+import java.util.Random;  //java.utilパッケージのRandomクラス使用宣言
 
 class Def {
   
-  private static Random rand = new Random();
-
-  public static void main(String[] args) {
-    System.out.println(rand.nextDouble());
+  private static Random rand = new Random();  //クラスでRandom型のオブジェクト作成
+  public static double nextDoubleMethod() {
+    return rand.nextDouble();  //nextDouble()メソッドでランダムな浮動小数点数を生成してreturnで返す
   }
   
-  public static double nextDouble() {
-    // Random rand = new Random();
-    return rand.nextDouble();
+  public static void main(String[] args) {
+    System.out.println(rand.nextDouble());  //nextDoubleMethod()でreturnしたrand.nextDouble()を出力
+    
+    // java.lang.Stringクラス
+    String message = "Hello, Java!";
+    System.out.println(message.length());
+    System.out.println(message.indexOf("o"));
+    System.out.println(message.contains("hello"));
+    System.out.println(message.contains("Hello"));
   }
+
   
 }
