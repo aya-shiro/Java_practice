@@ -30,6 +30,10 @@ public class Abc {
     in.close();  //コンソールからの入力終了記述。あってもなくても挙動に変化なし
 
     //一次元配列
+    
+    // List<String> list = new ArrayList<String>();  //配列の初期化？のち調べて使う
+    
+    
     int[] scores = {50, 55, 60, 105, 110};
     // for (int i = 0; i < 5; i++) {
     for (int i = 0; i < scores.length; i++) {  //scores.lengthで配列の要素数に合わせて柔軟に対応
@@ -74,7 +78,7 @@ public class Abc {
         StudentCard.count++;  //count++;と省略可(一意に定まるため)
         System.out.println("カウント：" + StudentCard.count);
       }
-    }De
+    }
   }
 
   public static double items(double price, int amount){

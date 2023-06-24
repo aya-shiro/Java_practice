@@ -8,8 +8,7 @@ import java.util.*;
 import java.util.Random;  //java.utilパッケージのRandomクラス使用宣言
 // StringクラスとMathクラスは頻出なのでimport省略可能
 
-class Def {
-
+public class Def {
   private static Random rand = new Random();  //クラスでRandom型のオブジェクト作成
   public static double nextDoubleMethod() {
     return rand.nextDouble();  //nextDouble()メソッドでランダムな浮動小数点数を生成してreturnで返す
@@ -58,8 +57,28 @@ class Def {
     //Math.fllorで返った浮動小数点~.0を(int)で整数型に型変換する
     //最後の+minで範囲0~9を1~10に調整
     System.out.println(randomInt);
+    
+    ExceptionTest.test();
   }
-  
+}
 
-
+// ファイル名と異なるクラスへのpublic修飾子の付与は不可
+class ExceptionTest {
+  public static void test() {
+    int a = 4;
+    int b = 0;
+    try {
+      int c = a / b;
+      System.out.println("cの値は" + c + "です");
+    }
+    catch (ArithmeticException e) {  //"ArithmeticException"はランタイムエラーから抜粋、変数eを定義
+      System.out.println("例外が発生しました");
+      System.out.println(e);
+      return;  //メソッドの即時終了
+    }
+    finally {
+      System.out.println("処理を終了します");
+    }
+    System.out.println("catchブロックでreturn;を記述しない場合に出力される");
+  }
 }
