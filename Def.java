@@ -67,15 +67,26 @@ class ExceptionTest {
   public static void test() {
     int a = 4;
     int b = 0;
+    int[] array = new int[3];
+
     try {
+      array[10] = 99;
+
       int c = a / b;
       System.out.println("cの値は" + c + "です");
     }
     catch (ArithmeticException e) {  //"ArithmeticException"はランタイムエラーから抜粋、変数eを定義
       System.out.println("例外が発生しました");
       System.out.println(e);
+      // e.printStackTrace();  //例外オブジェクトを出力する固有メソッド
       return;  //メソッドの即時終了
     }
+    
+    catch (ArrayIndexOutOfBoundsException r) {
+      System.out.println("2つ目の例外が発生しました");
+      System.out.println(r);
+    }
+
     finally {
       System.out.println("処理を終了します");
     }
