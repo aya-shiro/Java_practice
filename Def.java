@@ -9,26 +9,21 @@ import java.util.Random;  //java.utilパッケージのRandomクラス使用宣�
 // StringクラスとMathクラスは頻出なのでimport省略可能
 
 public class Def {
-  // public static double nextDoubleMethod() {
-  //   return rand.nextDouble();  //nextDouble()メソッドでランダムな浮動小数点数を生成してreturnで返す
-  // }
 
   public static void main(String[] args) {
-    printMath();
+    printInfo();
     ExceptionTest.test();
   }
   
-  // private static Random rand = new Random();  //クラスでRandom型のオブジェクト作成
-  
-  public static void printMath() {
-
+  public static void printInfo() {
+    System.out.println("------------ここからprintInfo-------------");
     Random rand = new Random();
-    System.out.println(rand.nextDouble());  //nextDoubleMethod()でreturnしたrand.nextDouble()を出力
+    System.out.println(rand.nextDouble());  //nextDouble()...ランダムな浮動小数点数を生成するRandomクラスの固有メソッド
 
     // java.lang.Stringクラス
     String message = "Hello, Java!";  //文字列Stringは頻出なのでnewは省略可能
-    System.out.println(message.length());
-    System.out.println(message.indexOf("o"));
+    System.out.println("文字数：" + message.length());
+    System.out.println("oのインデックス番号：" + message.indexOf("o"));
     System.out.println(message.contains("hello"));
     System.out.println(message.contains("Hello"));
     System.out.println(message.replace("Hello", "Good morning"));
@@ -60,11 +55,16 @@ public class Def {
 
     int min = 1;
     int max = 10;
-    int randomInt = (int) Math.floor(Math.random() * (max - min + 1) + min);  
+    int randomInt = (int) Math.floor(Math.random() * (max - min + 1) + min);
     //Math.randomで出した乱数に1~10の範囲内のいずれかを掛けてMath.fllorで整数にする
     //Math.fllorで返った浮動小数点~.0を(int)で整数型に型変換する
     //最後の+minで範囲0~9を1~10に調整
-    System.out.println(randomInt);
+    System.out.println("乱数設定1 1~10の範囲で出力されたのは：" + randomInt);
+    
+    int randomInt2 = (int) (Math.random() * 10);
+    System.out.println("乱数設定2 0~9の範囲で出力されたのは：" + randomInt2);
+    
+    System.out.println("------------ここまでprintInfo-------------");
   }
 }
 
@@ -76,9 +76,8 @@ class ExceptionTest {
     int[] array = new int[3];
 
     try {
-      array[10] = 99;
-
-      int c = a / b;
+      array[10] = 99;  //例外処理例1) 配列の要素数を超えたインデックス指定
+      int c = a / b;  //例外処理例2) ゼロ除算
       System.out.println("cの値は" + c + "です");
     }
     catch (ArithmeticException e) {  //"ArithmeticException"はランタイムエラーから抜粋、変数eを定義
