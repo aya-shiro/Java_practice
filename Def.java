@@ -9,12 +9,19 @@ import java.util.Random;  //java.utilパッケージのRandomクラス使用宣�
 // StringクラスとMathクラスは頻出なのでimport省略可能
 
 public class Def {
-  private static Random rand = new Random();  //クラスでRandom型のオブジェクト作成
   public static double nextDoubleMethod() {
     return rand.nextDouble();  //nextDouble()メソッドでランダムな浮動小数点数を生成してreturnで返す
   }
 
   public static void main(String[] args) {
+    printMath();
+    ExceptionTest.test();
+  }
+  
+  private static Random rand = new Random();  //クラスでRandom型のオブジェクト作成
+  
+  public static void printMath() {
+
     System.out.println(rand.nextDouble());  //nextDoubleMethod()でreturnしたrand.nextDouble()を出力
 
     // java.lang.Stringクラス
@@ -57,8 +64,6 @@ public class Def {
     //Math.fllorで返った浮動小数点~.0を(int)で整数型に型変換する
     //最後の+minで範囲0~9を1~10に調整
     System.out.println(randomInt);
-    
-    ExceptionTest.test();
   }
 }
 
@@ -78,7 +83,7 @@ class ExceptionTest {
     catch (ArithmeticException e) {  //"ArithmeticException"はランタイムエラーから抜粋、変数eを定義
       System.out.println("例外が発生しました");
       System.out.println(e);
-      // e.printStackTrace();  //例外オブジェクトを出力する固有メソッド
+      e.printStackTrace();  //例外オブジェクトを出力する固有メソッド
       return;  //メソッドの即時終了
     }
     
@@ -93,3 +98,4 @@ class ExceptionTest {
     System.out.println("catchブロックでreturn;を記述しない場合に出力される");
   }
 }
+
