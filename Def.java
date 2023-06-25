@@ -9,19 +9,20 @@ import java.util.Random;  //java.utilパッケージのRandomクラス使用宣�
 // StringクラスとMathクラスは頻出なのでimport省略可能
 
 public class Def {
-  public static double nextDoubleMethod() {
-    return rand.nextDouble();  //nextDouble()メソッドでランダムな浮動小数点数を生成してreturnで返す
-  }
+  // public static double nextDoubleMethod() {
+  //   return rand.nextDouble();  //nextDouble()メソッドでランダムな浮動小数点数を生成してreturnで返す
+  // }
 
   public static void main(String[] args) {
     printMath();
     ExceptionTest.test();
   }
   
-  private static Random rand = new Random();  //クラスでRandom型のオブジェクト作成
+  // private static Random rand = new Random();  //クラスでRandom型のオブジェクト作成
   
   public static void printMath() {
 
+    Random rand = new Random();
     System.out.println(rand.nextDouble());  //nextDoubleMethod()でreturnしたrand.nextDouble()を出力
 
     // java.lang.Stringクラス
