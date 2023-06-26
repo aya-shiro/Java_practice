@@ -9,12 +9,13 @@ import java.util.Random;  //java.utilパッケージのRandomクラス使用宣�
 // StringクラスとMathクラスは頻出なのでimport省略可能
 
 public class Def {
-
   public static void main(String[] args) {
     printInfo();
     ExceptionTest.test();
+    ShapeInfo shape = new ShapeInfo();
+    shape.star();
   }
-  
+
   public static void printInfo() {
     System.out.println("------------ここからprintInfo-------------");
     Random rand = new Random();
@@ -42,12 +43,12 @@ public class Def {
     // System.out.println(Math.sin(Math.PI / 6));  //この求め方もOK、π/6
     double qq = Math.sqrt(25);
     System.out.println(qq);
-    
+
     int bb = 3;
     int ww = 5;
     int mm = Math.max(bb, ww);
     System.out.println(mm);
-    
+
     double rr = Math.random();  //0.0~1.0の乱数をrrに代入し出力
     System.out.println(rr);
     double ff = Math.floor(5.24);  //Math.floorで引数の数値以下の最大整数値を返す
@@ -60,13 +61,25 @@ public class Def {
     //Math.fllorで返った浮動小数点~.0を(int)で整数型に型変換する
     //最後の+minで範囲0~9を1~10に調整
     System.out.println("乱数設定1 1~10の範囲で出力されたのは：" + randomInt);
-    
+
     int randomInt2 = (int) (Math.random() * 10);
     System.out.println("乱数設定2 0~9の範囲で出力されたのは：" + randomInt2);
-    
+
     System.out.println("------------ここまでprintInfo-------------");
   }
 }
+
+interface ImHavingStarMethod {
+  String star();
+}
+
+class ShapeInfo extends Def implements ImHavingStarMethod {
+  public String star() {
+    System.out.println("Starメソッドが動きました");
+    return "☆";
+  }
+}
+
 
 // ファイル名と異なるクラスへのpublic修飾子の付与は不可
 class ExceptionTest {
@@ -86,7 +99,7 @@ class ExceptionTest {
       e.printStackTrace();  //例外オブジェクトを出力する固有メソッド
       return;  //メソッドの即時終了
     }
-    
+
     catch (ArrayIndexOutOfBoundsException r) {
       System.out.println("2つ目の例外が発生しました");
       System.out.println(r);
