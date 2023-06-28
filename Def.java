@@ -14,7 +14,7 @@ public class Def {
     ExceptionTest.test();
     ShapeInfo shape = new ShapeInfo();
     shape.star();
-    
+
     // Numberクラスからthrowsで投げられた例外
     Number num = new Number();
     try {
@@ -22,9 +22,13 @@ public class Def {
     } catch (ArrayIndexOutOfBoundsException e) {
       System.out.println(e);
     }
-    
+
     SecondThread t = new SecondThread();
     t.start();
+    
+    ThirdThread tt = new ThirdThread();
+    Thread third = new Thread(tt);
+    third.start();
   }
 
   public static void printInfo() {
@@ -137,7 +141,15 @@ class Number {  //throwsとthrowでselectNumberメソッド外(mainメソッド)
 class SecondThread extends Thread {  //継承するThreadクラスもrunメソッドも、どちらも固有名
   public void run() {
     for(int i = 0; i < 10; i++) {
-      System.out.println("secondRunメソッドの繰り返し処理" + i);
+      System.out.println("Threadを継承したrunメソッドの繰り返し処理" + i);
+    }
+  }
+}
+
+class ThirdThread implements Runnable {
+  public void run() {
+    for(int i = 0; i < 10; i++) {
+      System.out.println("Runnableを使用したrunメソッドの繰り返し処理" + i);
     }
   }
 }
