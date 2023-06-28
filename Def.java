@@ -15,12 +15,16 @@ public class Def {
     ShapeInfo shape = new ShapeInfo();
     shape.star();
     
+    // Numberクラスからthrowsで投げられた例外
     Number num = new Number();
     try {
       num.selectNumber(-4);
     } catch (ArrayIndexOutOfBoundsException e) {
       System.out.println(e);
     }
+    
+    SecondThread t = new SecondThread();
+    t.start();
   }
 
   public static void printInfo() {
@@ -121,11 +125,7 @@ class ExceptionTest {
   }
 }
 
-// class throughTest extends Exception {
-  
-// }
-
-class Number {
+class Number {  //throwsとthrowでselectNumberメソッド外(mainメソッド)に例外を投げる
   void selectNumber(int number) throws ArrayIndexOutOfBoundsException {
     if (number < 0) {
       throw new ArrayIndexOutOfBoundsException("マイナスの値が入りました");
@@ -134,3 +134,10 @@ class Number {
   }
 }
 
+class SecondThread extends Thread {  //継承するThreadクラスもrunメソッドも、どちらも固有名
+  public void run() {
+    for(int i = 0; i < 10; i++) {
+      System.out.println("secondRunメソッドの繰り返し処理" + i);
+    }
+  }
+}
