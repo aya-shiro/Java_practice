@@ -70,13 +70,14 @@ public class Def {
 }
 
 interface ImHavingStarMethod {
-  String star();
+  // String star();
+  void star();
 }
-
 class ShapeInfo extends Def implements ImHavingStarMethod {
-  public String star() {
+  // public String star() {
+  public void star() {
     System.out.println("Starメソッドが動きました");
-    return "☆";
+    // return "☆";
   }
 }
 
@@ -93,16 +94,17 @@ class ExceptionTest {
       int c = a / b;  //例外処理例2) ゼロ除算
       System.out.println("cの値は" + c + "です");
     }
+
+    catch (ArrayIndexOutOfBoundsException r) {  //配列インデックス範囲外
+      System.out.println("1つ目の例外が発生しました");
+      System.out.println(r);
+      return;  //メソッドの即時終了
+    }
     catch (ArithmeticException e) {  //"ArithmeticException"はランタイムエラーから抜粋、変数eを定義
-      System.out.println("例外が発生しました");
+      System.out.println("2つ目の例外が発生しました");
       System.out.println(e);
       e.printStackTrace();  //例外オブジェクトを出力する固有メソッド
       return;  //メソッドの即時終了
-    }
-
-    catch (ArrayIndexOutOfBoundsException r) {
-      System.out.println("2つ目の例外が発生しました");
-      System.out.println(r);
     }
 
     finally {
