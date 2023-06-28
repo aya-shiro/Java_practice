@@ -14,6 +14,13 @@ public class Def {
     ExceptionTest.test();
     ShapeInfo shape = new ShapeInfo();
     shape.star();
+    
+    Number num = new Number();
+    try {
+      num.selectNumber(-4);
+    } catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println(e);
+    }
   }
 
   public static void printInfo() {
@@ -110,7 +117,20 @@ class ExceptionTest {
     finally {
       System.out.println("処理を終了します");
     }
-    System.out.println("catchブロックでreturn;を記述しない場合に出力される");
+    System.out.println("catchブロックでreturn;を記述しない場合に出力されるスコープ");
+  }
+}
+
+// class throughTest extends Exception {
+  
+// }
+
+class Number {
+  void selectNumber(int number) throws ArrayIndexOutOfBoundsException {
+    if (number < 0) {
+      throw new ArrayIndexOutOfBoundsException("マイナスの値が入りました");
+    }
+    System.out.println("numberは正常な値です");
   }
 }
 
