@@ -29,6 +29,15 @@ public class Def {
     ThirdThread tt = new ThirdThread();
     Thread third = new Thread(tt);
     third.start();
+    try {
+      third.join();
+    } catch (InterruptedException e) {
+      System.out.println(e);
+    }
+    
+    ForthThread ttt = new ForthThread();
+    ttt.start();
+
   }
 
   public static void printInfo() {
@@ -140,21 +149,29 @@ class Number {  //throwsとthrowでselectNumberメソッド外(mainメソッド)
 
 class SecondThread extends Thread {  //継承するThreadクラスもrunメソッドも、どちらも固有名
   public void run() {
-    for(int i = 0; i < 10; i++) {
-      try {
+    for(int i = 0; i < 5; i++) {
+      try {  //1秒ずつSecondThreadを実行するtry~catchブロック
         SecondThread.sleep(1000);
       } catch(InterruptedException e) {
         System.out.println(e);   
       }
-      System.out.println("Threadを継承したrunメソッドの繰り返し処理" + i);
+      System.out.println("Threadを継承したrunメソッドの繰り返し処理" + i);  //tryが無事通過したら実行
     }
   }
 }
 
 class ThirdThread implements Runnable {
   public void run() {
-    for(int i = 0; i < 10; i++) {
+    for(int i = 0; i < 5; i++) {
       System.out.println("Runnableを使用したrunメソッドの繰り返し処理" + i);
+    }
+  }
+}
+
+class ForthThread extends Thread {
+  public void run() {
+    for(int i = 0; i < 5; i++) {
+      System.out.println("☆Threadを継承したrunメソッドの繰り返し処理" + i);  
     }
   }
 }
