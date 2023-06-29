@@ -25,7 +25,7 @@ public class Def {
 
     SecondThread t = new SecondThread();
     t.start();
-    
+
     ThirdThread tt = new ThirdThread();
     Thread third = new Thread(tt);
     third.start();
@@ -141,6 +141,11 @@ class Number {  //throwsとthrowでselectNumberメソッド外(mainメソッド)
 class SecondThread extends Thread {  //継承するThreadクラスもrunメソッドも、どちらも固有名
   public void run() {
     for(int i = 0; i < 10; i++) {
+      try {
+        SecondThread.sleep(1000);
+      } catch(InterruptedException e) {
+        System.out.println(e);   
+      }
       System.out.println("Threadを継承したrunメソッドの繰り返し処理" + i);
     }
   }
