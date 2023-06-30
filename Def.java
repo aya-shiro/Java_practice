@@ -37,6 +37,10 @@ public class Def {
     
     ForthThread ttt = new ForthThread();
     ttt.start();
+    
+    
+    System.out.println("現在のメモリ空き容量：" + Runtime.getRuntime().freeMemory());
+    System.out.println("現在の利用可能なプロセッサ数：" + Runtime.getRuntime().availableProcessors());
 
   }
 
