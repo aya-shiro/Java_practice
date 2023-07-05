@@ -69,6 +69,7 @@ class AllaySample {
         System.out.println(numbers[i][j]);
       }
     }
+    // 1周目はi-0の箱からj-0 j-1 j-2を、2週目はi-1の箱からj-0 j-1 j-2をとる
   }
 
 }
