@@ -11,15 +11,16 @@ public class Ghi {
     for (int i = 0; i < array.size(); i++ ) {
       System.out.println(array.get(i));
     }
-    
+
     array.remove(0);
     System.out.println("現在の要素数は" + array.size());
     for (int i = 0; i < array.size(); i++ ) {
       System.out.println(array.get(i));
     }
-    
+
     WrapTest.wrap();
     HashMapTest.company();
+    AllaySample.doubleArray();
   }
 }
 
@@ -30,11 +31,11 @@ class WrapTest {
     numbers.add(Integer.valueOf(10));
     numbers.add(Integer.valueOf(20));
     numbers.add(Integer.valueOf(30));
-    
+
     Integer number10 = numbers.get(0);
     int num10 = number10.intValue();
     System.out.println(num10);
-    
+
     int num20 = numbers.get(1);  //オートボクシングを活用した書き方
     System.out.println(num20);
   }
@@ -51,4 +52,23 @@ class HashMapTest {
     System.out.println(worker.get("name"));  //キー"name"に対応する値を出力
     System.out.println(worker.get("belong"));  //キー"belong"に対応する値を出力
   }
+}
+
+class AllaySample {
+  public static void doubleArray() {
+    int numbers[][] = new int[2][3];
+    numbers[0][0] = 21;
+    numbers[0][1] = 55;
+    numbers[0][2] = 76;
+    numbers[1][0] = 73;
+    numbers[1][1] = 64;
+    numbers[1][2] = 60;
+
+    for (int i = 0; i < numbers.length; i++) {
+      for (int j = 0; j < numbers[i].length; j++) {
+        System.out.println(numbers[i][j]);
+      }
+    }
+  }
+
 }
